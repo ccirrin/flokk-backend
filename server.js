@@ -2,6 +2,8 @@ var express = require("express");
 var app = express();
 var port = 5000;
 var bodyParser = require('body-parser');
+var cors = require('cors');
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
