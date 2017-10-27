@@ -8,8 +8,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/node-demo");
+mongoose.connect("mongodb://kohanian:flokk222@ds237735.mlab.com:37735/flokk-db",
+    { useMongoClient: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("Connected");
+});
 var eventSchema = new mongoose.Schema({
     title: String,
     description: String,
