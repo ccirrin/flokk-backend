@@ -83,12 +83,13 @@ app.get("/events", (req, res) => {
     })
 });
 
-// Get list of all of the user's events
+// Get list of the user's events
 app.post("/events/user", (req, res) => {
     /* Inside of the "Event" collection, 
         find based off of query passed in.
     */
     var userEmail = req.body;
+    console.log(userEmail);
     
     Event.find({ email: userEmail }, function(err, events){
         if(err){
