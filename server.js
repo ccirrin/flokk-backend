@@ -84,7 +84,7 @@ app.get("/events", (req, res) => {
 });
 
 // Get list of all of the user's events
-app.get("/events/user", (req, res) => {
+app.post("/events/user", (req, res) => {
     /* Inside of the "Event" collection, 
         find based off of query passed in.
     */
