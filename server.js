@@ -83,6 +83,24 @@ app.get("/events", (req, res) => {
     })
 });
 
+// Get list of all of the user's events
+app.get("/events/user", (req, res) => {
+    /* Inside of the "Event" collection, 
+        find based off of query passed in.
+    */
+    var query = req.body
+        
+    Event.find({email: query}, function(err, events){
+        if(err){
+            // Pass 500 status code if there is an error
+          return res.status(500).json({message: "error"});
+        } else{
+            // Pass 200 and send the list of events in json.
+            return res.status(200).send(events);
+        }
+    })
+});
+
 // POST method to create event
 app.post("/events/create", (req, res) => {
     // create new schema from the request body passed in
