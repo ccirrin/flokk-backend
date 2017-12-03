@@ -48,7 +48,12 @@ var eventSchema = new mongoose.Schema({
     title: String,
     description: String,
     date: String,
-    location: String
+    time: String,
+    location: String,
+    email: String,
+    latitude: double,
+    longitude: double
+    
 });
 /* Referencing the Event collection, and attaching
     a schema to that collection
