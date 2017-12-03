@@ -88,8 +88,7 @@ app.post("/events/user", (req, res) => {
     /* Inside of the "Event" collection, 
         find based off of query passed in.
     */
-    var userEmail = req.body;
-    console.log(userEmail);
+    var userEmail = JSON.parse(req.body);
     
     Event.find({ email: userEmail }, function(err, events){
         if(err){
