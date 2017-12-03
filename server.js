@@ -90,7 +90,7 @@ app.post("/events/user", (req, res) => {
     */
     var query = {email: req.body}
     
-    Event.find(query, function(err, events){
+    Event.find(query).toArray(function(err, events) {
         if(err){
             // Pass 500 status code if there is an error
           return res.status(500).json({message: "error"});
