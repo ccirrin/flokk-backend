@@ -89,7 +89,7 @@ app.post("/events/user", (req, res) => {
         find based off of query passed in.
     */
     
-    Event.find({ "email": req.body.email }, function(err, events){
+    Event.find({ "email": JSON.stringify(req.body) }, function(err, events){
         if(err){
             // Pass 500 status code if there is an error
           return res.status(500).json({message: "error"});
